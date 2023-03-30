@@ -31,3 +31,33 @@ classDiagram-v2
     Day o-- Meals
     Day o-- Snacks
  ```
+ ## Chapter 2
+ __Note__ Items are now singular and ingredient is now food item. Day is now Entry
+
+ ```mermaid
+classDiagram-v2
+    Dieter --> Diary : Keeps a
+    Dieter *-- Statistic : Tracks their
+    Dieter *-- Favourite : Saves their
+
+    Diary *-- Entry : Made up of
+
+    Meal o-- Item
+    Meal o-- Favourite
+
+    Breakfast --|> Meal : Implements
+    Lunch --|> Meal : Implements
+    Dinner --|> Meal : Implements
+
+    Favourite o-- Item
+
+    Item o-- Nutrition
+
+    Snack o-- Item : Can be
+    
+    Weight --|> Statistic
+    Measurement --|> Statistic
+
+    Entry o-- Meal
+    Entry o-- Snack
+ ```
