@@ -43,21 +43,18 @@ classDiagram-v2
     Diary *-- Entry : Made up of
 
     Meal o-- Item
-    Meal o-- Favourite
 
     Breakfast --|> Meal : Implements
     Lunch --|> Meal : Implements
     Dinner --|> Meal : Implements
+    Snack --|> Meal : Implements
 
     Favourite o-- Item
 
     Item o-- Nutrition
-
-    Snack o-- Item : Can be
     
     Weight --|> Statistic
     Measurement --|> Statistic
 
     Entry o-- Meal
-    Entry o-- Snack
  ```
