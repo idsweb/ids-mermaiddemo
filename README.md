@@ -1,5 +1,12 @@
 # ids-mermaiddemo
 Sample project for the book Creating Software with Modern Diagramming Techniques
+
+```
+    Dieter -- Diary
+    Dieter *-- Statistics
+    Meals o-- Favourites
+...
+```
 ```mermaid
 classDiagram-v2
     Dieter -- Diary
