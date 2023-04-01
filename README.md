@@ -2,59 +2,69 @@
 Sample project for the book Creating Software with Modern Diagramming Techniques
 
 ```
-    Dieter -- Diary
+    Dieter -- FoodDiary
     Dieter *-- Statistics
-    Meals o-- Favourites
+    Entrys o-- Favourites
 ...
 ```
 ```mermaid
 classDiagram-v2
-    Dieter -- Diary
+    Dieter -- FoodDiary
     Dieter *-- Statistics
     Dieter *-- Favourites
 
-    Diary *-- Day
+    FoodDiary *-- Day
 
-    Meals o-- Ingredients
-    Meals o-- Favourites
+    Entrys o-- Ingredients
+    Entrys o-- Favourites
 
     Favourites o-- Ingredients
 
-    Ingredients o-- Nutrition
+    Ingredients o-- NutritionInfo
 
     Snacks o-- Ingredients
     Snacks o-- Favourites
     
     Statistics *-- Weights
-    Statistics *-- Measurements
+    Statistics *-- WaistMeasurements
 
-    Day o-- Meals
+    Day o-- Entrys
     Day o-- Snacks
  ```
  ## Chapter 2
- __Note__ Items are now singular and ingredient is now food item. Day is now Entry
+ __Note__ FoodItems are now singular and ingredient is now food FoodItem. Day is now Entry
 
  ```mermaid
+ ---
+ title: Diet App
+ ---
 classDiagram-v2
-    Dieter --> Diary : Keeps a
-    Dieter *-- Statistic : Tracks their
-    Dieter *-- Favourite : Saves their
-
-    Diary *-- Entry : Made up of
-
-    Meal o-- Item
-
-    Breakfast --|> Meal : Implements
-    Lunch --|> Meal : Implements
-    Dinner --|> Meal : Implements
-    Snack --|> Meal : Implements
-
-    Favourite o-- Item
-
-    Item o-- Nutrition
+    Dieter "1" --> "1" FoodDiary : Keeps a
+    Dieter "1" --> "0..*" Statistic : Tracks their
+    Dieter "1" *-- "0..*" Favourite : Saves 
     
-    Weight --|> Statistic
-    Measurement --|> Statistic
+    FoodDataBank "1" -- "1..*" FoodItem : Is made up of
 
-    Entry o-- Meal
+    FoodDiary "1" *-- "1..*" Day : Made up of
+
+    Entry o-- FoodItem : Implements
+
+    Breakfast --|> Entry : Implements
+    Lunch --|> Entry : Implements
+    Dinner --|> Entry : Implements
+    Snack --|> Entry : Implements
+
+    Day "1" o-- "1" Breakfast  : Has
+    Day "1" o-- "1" Lunch : Has
+    Day "1" o-- "1" Dinner : Has
+    Day "1" o-- "1..*" Snack : Has
+
+    Favourite o-- FoodItem : Implements
+
+    FoodItem o-- NutritionInfo : Has
+    
+    Weight --|> Statistic : Is a kind of
+    WaistMeasurement --|> Statistic : Is a kind of
+
+    
  ```
