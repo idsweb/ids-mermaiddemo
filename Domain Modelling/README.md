@@ -10,13 +10,14 @@ Mermaid has class diagram syntax which can be used to model the domain. Classes 
 ## Basic domain model syntax
 You can use the following class diagram to represent entities and their relationships. 
 ```
+mermaid
 classDiagram-v2
-Title -- Genre : Association
-Title *-- Season : Composition
-Title o-- Actor : Aggregation
+Dieter -- FoodDiary : Association
+Dieter *-- Statistics : Composition
+FoodDiary o-- FoodItem : Aggregation
 ```
 ## Relationship types
-The entities (classes) above have three different relationships:
+The entities (classes) above have three different relationships. For example the dieters weight does not exist without the dieter but a food item can be a favourite for reuse or an entry in the food diary.
 * Association (each object holds a reference to another) --
 * Composition (child does not exist without parent) *--
 * Aggregation (object can exitst without the other) o--
@@ -24,9 +25,9 @@ The entities (classes) above have three different relationships:
 Text after the colon describes the relationship. 
 ```mermaid
 classDiagram-v2
-Dieter -- FoodDiary : Association
-Dieter *-- Statistics : Composition
-FoodDiary o-- FoodItem : Aggregation
+Dieter -- FoodDiary : Association (two dashes)
+Dieter *-- Statistics : Composition (star and two dashes)
+FoodDiary o-- FoodItem : Aggregation (letter o and two dashes)
 ```
 ## Diet App Domain Model (first iteration)
 Using this we can scaffold out the first attemp at a domain model:
