@@ -1,12 +1,28 @@
 # ids-mermaiddemo
 Sample project for the book Creating Software with Modern Diagramming Techniques
 
+## Basic ERD syntax
+You can use a class diagram to represent an ERD. 
 ```
 classDiagram-v2
-    Dieter -- FoodDiary
-    Dieter *-- Statistics
-    Entrys o-- Favourites
+Title -- Genre : Association
+Title *-- Season : Composition
+Title o-- Actor : Aggregation
 ```
+## Relationships
+* Association (each object holds a reference to another) --
+* Composition (child does not exist without parent) *--
+* Aggregation (object can exitst without the other) o--
+
+The text after the colon describes the relationship
+```mermaid
+classDiagram-v2
+Title -- Genre : Association
+Title *-- Season : Composition
+Title o-- Actor : Aggregation
+```
+## Diet App Domain Model (first iteration)
+
 ```mermaid
 classDiagram-v2
     Dieter -- FoodDiary
