@@ -1,28 +1,35 @@
 # ids-mermaiddemo
-Sample project for the book Creating Software with Modern Diagramming Techniques
+Domain modelling is useful in establishing entities and bounded contexts. Domain Driven Design is a natural partner for developing Microservices and Mermaid is a useful tool for creating diagrams right within your DevOps/Gihub repo or Wiki.
 
-## Basic ERD syntax
-You can use a class diagram to represent an ERD. 
+## Note on the example
+For simplicity this readme uses a simple contrived model of a diet and excercise app. 
+
+## Domain modelling with Mermaid
+Mermaid has class diagram syntax which can be used to model the domain. Classes are used to represent entities.
+
+## Basic domain model syntax
+You can use the following class diagram to represent entities and their relationships. 
 ```
 classDiagram-v2
 Title -- Genre : Association
 Title *-- Season : Composition
 Title o-- Actor : Aggregation
 ```
-## Relationships
+## Relationship types
+The entities (classes) above have three different relationships:
 * Association (each object holds a reference to another) --
 * Composition (child does not exist without parent) *--
 * Aggregation (object can exitst without the other) o--
 
-The text after the colon describes the relationship
+Text after the colon describes the relationship. 
 ```mermaid
 classDiagram-v2
-Title -- Genre : Association
-Title *-- Season : Composition
-Title o-- Actor : Aggregation
+Dieter -- FoodDiary : Association
+Dieter *-- Statistics : Composition
+FoodDiary o-- FoodItem : Aggregation
 ```
 ## Diet App Domain Model (first iteration)
-
+Using this we can scaffold out the first attemp at a domain model:
 ```mermaid
 classDiagram-v2
     Dieter -- FoodDiary
@@ -47,8 +54,22 @@ classDiagram-v2
     Day o-- Entrys
     Day o-- Snacks
  ```
- ## Chapter 2
- __Note__ FoodItems are now singular and ingredient is now food FoodItem. Day is now Entry
+ ## Adding more detail
+You can add multiplicity and more detail to the relationships. Cardinality is added at the end of the relationship e.g.
+```
+    Dieter "1" --> "0..*" Statistic : Tracks their
+``` 
+A dieter has 0 or more statistics and statistics belong to one dieter. Entities are shown as singular and more detail on the relationship is shown by adding text after the colon.  
+
+Specializations can be shown with 
+```
+   Breakfast --|> Entry : Implements
+```
+```mermaid
+   classDiagram-v2
+   Breakfast --|> Entry : Implements
+```
+Using all the above the diagram can be expanded as below.
 
  ```mermaid
  ---
