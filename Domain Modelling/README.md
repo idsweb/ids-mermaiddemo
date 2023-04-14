@@ -106,3 +106,37 @@ classDiagram-v2
     WaistMeasurement --|> Statistic : Is a kind of
     
  ```
+Diagram in text form
+ ```
+ ---
+ title: Diet App
+ ---
+classDiagram-v2
+    Dieter "1" --> "1" FoodDiary : Keeps a
+    Dieter "1" --> "0..*" Statistic : Tracks their
+    Dieter "1" *-- "0..*" Favourite : Saves 
+    
+    FoodDataBank "1" -- "1..*" FoodItem : Is made up of
+
+    FoodDiary "1" *-- "1..*" Day : Made up of
+
+    Entry o-- FoodItem : Implements
+
+    Breakfast --|> Entry : Implements
+    Lunch --|> Entry : Implements
+    Dinner --|> Entry : Implements
+    Snack --|> Entry : Implements
+
+    Day "1" o-- "1" Breakfast  : Has
+    Day "1" o-- "1" Lunch : Has
+    Day "1" o-- "1" Dinner : Has
+    Day "1" o-- "1..*" Snack : Has
+
+    Favourite o-- FoodItem : Implements
+
+    FoodItem o-- NutritionInfo : Has
+    
+    Weight --|> Statistic : Is a kind of
+    WaistMeasurement --|> Statistic : Is a kind of
+    
+ ```
