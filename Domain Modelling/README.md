@@ -67,6 +67,12 @@ Specializations can be shown with
 ```
    Breakfast --|> Entry : Implements
 ```
+Associations can be directional using two dashes and a greater than symbol:
+```
+Dieter "1" --> "1" FoodDiary : Keeps a 
+#
+```
+ary : Keeps a
 ```mermaid
    classDiagram-v2
    Breakfast --|> Entry : Implements
