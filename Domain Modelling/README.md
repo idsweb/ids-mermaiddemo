@@ -18,9 +18,9 @@ FoodDiary o-- FoodItem : Aggregation
 ```
 ## Relationship types
 The entities (classes) above have three different relationships. For example the dieters weight does not exist without the dieter but a food item can be a favourite for reuse or an entry in the food diary.
-* Association (each object holds a reference to another) --
-* Composition (child does not exist without parent) *--
-* Aggregation (object can exitst without the other) o--
+* Association (each object holds a reference to another) -- shown with a line.
+* Composition (child does not exist without parent) *-- shown with a solid diamond.
+* Aggregation (object can exitst without the other) o-- shown with a white filled diamond.
 
 Text after the colon describes the relationship. 
 ```mermaid
@@ -30,11 +30,12 @@ Dieter *-- Statistics : Composition (star and two dashes)
 FoodDiary o-- FoodItem : Aggregation (letter o and two dashes)
 ```
 ## Diet App Domain Model (first iteration)
-Using this we can scaffold out the first attemp at a domain model:
+Using this we can scaffold out the first attemp at a domain model. 
+__Note__ some of the relationships have been refined. During modelling some of the entities may become properties of other entities.
 ```mermaid
 classDiagram-v2
     Dieter -- FoodDiary
-    Dieter *-- Statistics
+    Dieter -- Statistics
     Dieter *-- Favourites
 
     FoodDiary *-- Day
@@ -103,6 +104,5 @@ classDiagram-v2
     
     Weight --|> Statistic : Is a kind of
     WaistMeasurement --|> Statistic : Is a kind of
-
     
  ```
